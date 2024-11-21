@@ -1,0 +1,34 @@
+{
+  "name": "Docker-OSX Ventura",
+  "image": "dickhub/docker-osx:ventura",
+  "runArgs": [
+    "--device",
+    "/dev/kvm",
+    "-p",
+    "50922:10022",
+    "-p",
+    "5999:5999",
+    "--expose",
+    "5999",
+    "-v",
+    "/tmp/.X11-unix:/tmp/.X11-unix",
+    "-e",
+    "DISPLAY=${localEnv:DISPLAY:-:0.0}",
+    "-e",
+    "EXTRA=-display none -vnc 0.0.0.0:99,password=on"
+  ],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+  "onCreateCommand": "/bin/bash /workspace/.devcontainer/start-container.sh",
+  "mounts": ["source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind"],
+  "remoteUser": "arch",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": ["ms-vscode.remote-containers"]
+    }
+  },
+  "postCreateCommand": "echo 'Devcontainer setup complete!'"
+}
