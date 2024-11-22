@@ -1,6 +1,7 @@
 FROM dickhub/docker-osx:ventura
 
- COPY scripts/* /workspace/scripts/
+ COPY scripts/steup-host.sh /usr/local/bin/steup-host.sh
+ COPY scripts/start.sh /usr/local/bin/start.sh
 
 
 
