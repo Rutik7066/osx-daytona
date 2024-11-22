@@ -4,6 +4,7 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
+  "remoteUser": "arch",
   "initializeCommand": "chmod +x  ./scripts/setup-host.sh &&  ./scripts/setup-host.sh",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
   "onCreateCommand": "chmod +x ./scripts/start.sh && ./scripts/start.sh",
