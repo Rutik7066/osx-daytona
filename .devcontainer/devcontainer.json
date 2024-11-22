@@ -2,16 +2,15 @@
   "name": "Docker-OSX Ventura",
   "build": {
     "dockerfile": "Dockerfile",
-    "context": "."
   },
   "remoteUser": "arch",
-  "initializeCommand": "./setup-host.sh",
+  "initializeCommand": "ls",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-  "onCreateCommand": "./start.sh",
-  "customizations": {
-    // Might cause error need to set bash as terminal
-    "terminal.integrated.shell.linux": "/bin/bash" 
-  },
+  "onCreateCommand": "ls",
+  // "customizations": {
+  //   // Might cause error need to set bash as terminal
+  //   "terminal.integrated.shell.linux": "/bin/bash" 
+  // },
   "forwardPorts": [
     50922,
     5999
