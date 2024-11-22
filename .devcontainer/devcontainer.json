@@ -5,7 +5,7 @@
     "context": ".."
   },
   "remoteUser": "arch",
-  "initializeCommand": "chmod +x  /usr/local/bin/steup-host.sh &&  /usr/local/bin/steup-host.sh",
+  "initializeCommand": "ls",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
   "onCreateCommand": "chmod +x /usr/local/bin/start.sh && /usr/local/bin/start.sh",
   "customizations": {
