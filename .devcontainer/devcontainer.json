@@ -5,9 +5,9 @@
     "context": "."
   },
   "remoteUser": "arch",
-  "initializeCommand": "ls",
+  "initializeCommand": "setup-host.sh",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-  "onCreateCommand": "chmod +x ./scripts/start.sh && ./scripts/start.sh",
+  "onCreateCommand": "start.sh",
   "customizations": {
     // Might cause error need to set bash as terminal
     "terminal.integrated.shell.linux": "/bin/bash" 
