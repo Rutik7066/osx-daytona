@@ -2,7 +2,7 @@
   "name": "Docker-OSX Ventura",
   "build": {
     "dockerfile": "Dockerfile",
-    
+    "context": "."
   },
   "remoteUser": "arch",
   "initializeCommand": "chmod +x  ./scripts/setup-host.sh &&  ./scripts/setup-host.sh",
