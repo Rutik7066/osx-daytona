@@ -13,8 +13,8 @@
     "terminal.integrated.shell.linux": "/bin/bash" 
   },
   "forwardPorts": [
-    "50922:50922",
-    "5999:5999"
+    50922,
+    5999
   ],
   "runArgs": [
     "--device", "/dev/kvm",
