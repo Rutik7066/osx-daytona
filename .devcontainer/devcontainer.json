@@ -2,12 +2,12 @@
   "name": "Docker-OSX Ventura",
   "build": {
     "dockerfile": "Dockerfile",
-    "context": ".."
+    
   },
   "remoteUser": "arch",
-  "initializeCommand": "chmod +x  .devcontainer/scripts/setup-host.sh &&  .devcontainer/scripts/setup-host.sh",
+  "initializeCommand": "chmod +x  ./scripts/setup-host.sh &&  ./scripts/setup-host.sh",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-  "onCreateCommand": "chmod +x .devcontainer/scripts/start.sh && .devcontainer/scripts/start.sh",
+  "onCreateCommand": "chmod +x ./scripts/start.sh && ./scripts/start.sh",
   "customizations": {
     // Might cause error need to set bash as terminal
     "terminal.integrated.shell.linux": "/bin/bash" 
