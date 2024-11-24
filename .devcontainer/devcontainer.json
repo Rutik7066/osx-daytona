@@ -2,10 +2,12 @@
   "name": "Docker-OSX Ventura",
   "build": {
     "dockerfile": "Dockerfile",
+    "context": "."
   },
-  "remoteUser": "daytona",
-  // "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-  "onCreateCommand": "ls && /usr/start.sh",
+  "remoteUser": "arch",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind", 
+  "onCreateCommand": "chmod +x .devcontainer/start.sh && .devcontainer/start.sh",
+  "initializeCommand": "chmod +x .devcontainer/setup-host.sh && .devcontainer/setup-host.sh",
    "forwardPorts": [
     50922,
     5999
@@ -15,6 +17,6 @@
     "-v", "/tmp/.X11-unix:/tmp/.X11-unix",
     "-e", "DISPLAY=${localEnv:DISPLAY:-:0.0}",
     "-e", "EXTRA=-display none -vnc 0.0.0.0:99,password=on",
-    "--privileged"
+    "--security-opt", "seccomp=unconfined"
   ]
 }
