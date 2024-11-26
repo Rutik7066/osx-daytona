@@ -5,18 +5,17 @@
     "context": "."
   },
   "remoteUser": "arch",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind", 
-  "onCreateCommand": "chmod +x .devcontainer/start.sh && .devcontainer/start.sh",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
   "initializeCommand": "chmod +x .devcontainer/setup-host.sh && .devcontainer/setup-host.sh",
-   "forwardPorts": [
-    50922,
-    5999
-  ],
   "runArgs": [
     "--device", "/dev/kvm",
+    "--device", "/dev/snd",
+    "-p", "50922:10022",
+    "-p", "5999:5999",
+    "-e", "USERNAME=rutik",
+    "-e", "PASSWORD=rutik",
     "-v", "/tmp/.X11-unix:/tmp/.X11-unix",
-    "-e", "DISPLAY=${localEnv:DISPLAY:-:0.0}",
-    "-e", "EXTRA=-display none -vnc 0.0.0.0:99,password=on",
-    "--security-opt", "seccomp=unconfined"
+    "-e", "DISPLAY=${DISPLAY:-:0.0}",
+    "-e", "EXTRA=-display none -vnc 0.0.0.0:99" 
   ]
 }

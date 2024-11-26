@@ -15,11 +15,28 @@ docker run -i \
     -p 50922:50922 \
     -p 5999:5999 \
     --expose 5999 \
-    -v /workspaces/test-osx-dtn:/workspaces/test-osx-dtn \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
     -e EXTRA="-display none -vnc 0.0.0.0:99,password=on" \
     dickhub/docker-osx:ventura
 
 
-docker build -t docker-osx .   
+
+    docker run -i \
+        --device /dev/kvm \
+        --device /dev/snd \
+        -p 50922:10022 \
+        --expose 50922 \
+        -p 5999:5999 \
+        --expose 5999 \
+        -e "USERNAME=rutik" \
+        -e "PASSWORD=rutik" \
+        -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -e "DISPLAY=${DISPLAY:-:0.0}" \
+        -e EXTRA="-display none -vnc 0.0.0.0:99" \
+        dickhub/docker-osx:ventura
+
+
+
+ssh user@127.0.0.1 -p 50922
+
